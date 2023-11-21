@@ -12,14 +12,13 @@ import { MatTableDataSource } from '@angular/material/table';
 export class UsersListingComponent implements OnInit{
 
   constructor(private RequestService: RequestService){}
-
+  
+  // api link
   apiLink:string = UserConstacts.usersApi;
-
-  filterUserList:Array<UsersInterface> = [];
-
-  usersList = new MatTableDataSource<UsersInterface>(this.filterUserList);
+  // user table
+  UserListData:Array<UsersInterface> = [];
+  usersList = new MatTableDataSource<UsersInterface>(this.UserListData);
   showColumns: string[] = UserConstacts.tableHeader;
-
 
   ngOnInit(): void {
     this.getUsers();
@@ -27,9 +26,8 @@ export class UsersListingComponent implements OnInit{
 
   getUsers(){
     this.RequestService.get(this.apiLink).subscribe((res:any) => {
-      this.filterUserList = res;
-      this.usersList = new MatTableDataSource<UsersInterface>(this.filterUserList);
-      console.log(this.usersList);
+      this.UserListData = res;
+      this.usersList = new MatTableDataSource<UsersInterface>(this.UserListData);
     });
   }
 
@@ -37,6 +35,7 @@ export class UsersListingComponent implements OnInit{
     const filterValue = (event.target as HTMLInputElement).value;
     this.usersList.filter = filterValue.trim().toLowerCase();
   }
+
 
 
 }

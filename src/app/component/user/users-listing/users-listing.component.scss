@@ -1,4 +1,25 @@
 .all-user{
-
-
+  padding: 10px;
+  table{
+    width: 100%;
+    th{
+      text-transform: capitalize;
+    }
+    td{
+      img{
+        height: 25px;
+        border-radius: 50%;
+        display: block;
+        margin-left: 10px;
+      }
+    }
+  }
+  .form-input{
+    padding: 10px 10px 0 0;
+    .mat-form-field{
+      font-size: 16px;
+      width: 100%;
+    }
+  }
 }
+
