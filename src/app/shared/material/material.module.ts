@@ -15,6 +15,8 @@ import { MatSortModule  } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -33,6 +35,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSnackBarModule,
     MatToolbarModule,
     MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     FlexLayoutModule,
@@ -48,6 +52,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSnackBarModule,
     MatToolbarModule,
     MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

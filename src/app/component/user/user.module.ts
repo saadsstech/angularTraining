@@ -5,13 +5,15 @@ import { UsersListingComponent } from './users-listing/users-listing.component';
 import { UserRoutingModule } from './user-routing.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
 
 
 
 @NgModule({
   declarations: [
     UserComponent,
-    UsersListingComponent
+    UsersListingComponent,
+    AddEditUserComponent
   ],
   imports: [
     CommonModule,

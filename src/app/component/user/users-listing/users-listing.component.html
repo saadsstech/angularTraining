@@ -35,6 +35,14 @@
             </tr>
         </table>
 
+        <mat-paginator
+            [pageSizeOptions]="pageSize" 
+            showFirstLastButtons
+            [pageIndex]="pageIndex"
+            (page)="handlePage($event)">
+        </mat-paginator>
+
+
 
     </div>
 </div>

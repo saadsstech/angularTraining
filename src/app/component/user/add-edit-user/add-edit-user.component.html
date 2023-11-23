@@ -1,0 +1,75 @@
+<div class="addEdit">
+    <div fxlayout="row">
+        <div fxFlex="30"></div>
+        <div fxFlex="70">
+            <form [formGroup]="basicForm" #ngForm="ngForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name </mat-label>
+                    <input matInput formControlName="lastName">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Email </mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Personal ID </mat-label>
+                    <input matInput formControlName="personalId">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Profile Photo</mat-label>
+                    <input matInput formControlName="profilePhoto">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Mobile Number </mat-label>
+                    <input matInput formControlName="mobileNumber">
+                </mat-form-field>
+
+                <div class="mat-radio-button">
+                    <mat-label>Gender</mat-label>
+                    <mat-radio-group formControlName="gender">
+                        <mat-radio-button value="male">Male</mat-radio-button>
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="city">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Country</mat-label>
+                    <mat-select formControlName="country">
+                        <mat-option value="India">India</mat-option>
+                        <mat-option value="Usa">USA</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput formControlName="zipCode">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Choose a Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+</div>
