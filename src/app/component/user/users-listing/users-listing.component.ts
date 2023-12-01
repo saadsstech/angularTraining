@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserConstacts } from '../user-constacts';
 import { RequestService } from 'src/app/http/services/request.service';
-import { UsersInterface } from './usersInterface';
+import { UsersInterface } from '../interface/usersInterface';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { GlobalConstants } from '../../../constants/global-constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-listing',
@@ -14,7 +15,7 @@ import { GlobalConstants } from '../../../constants/global-constants';
 })
 export class UsersListingComponent implements OnInit{
 
-  constructor(private RequestService: RequestService){}
+  constructor(private RequestService: RequestService, private router: Router){}
 
   // pagination
   @ViewChild(MatPaginator) paginator: MatPaginator | any = 5;
@@ -51,6 +52,9 @@ export class UsersListingComponent implements OnInit{
     this.pageIndex = e.pageIndex;
   }
 
-
+  edit(data:UsersInterface){
+    debugger
+    this.router.navigate(['/users/user-add-edit'], {state:{user:data}})
+  }
 
 }

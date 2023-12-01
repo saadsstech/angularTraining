@@ -6,6 +6,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
+import { NestformComponent } from './nestform/nestform.component';
 
 
 
@@ -13,7 +14,8 @@ import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
   declarations: [
     UserComponent,
     UsersListingComponent,
-    AddEditUserComponent
+    AddEditUserComponent,
+    NestformComponent
   ],
   imports: [
     CommonModule,

@@ -2,7 +2,7 @@
     <div fxlayout="row">
         <div fxFlex="30"></div>
         <div fxFlex="70">
-            <form [formGroup]="basicForm" #ngForm="ngForm">
+            <form [formGroup]="nestedForm" #ngForm="ngForm">
                 <mat-form-field appearance="fill">
                     <mat-label>First Name</mat-label>
                     <input matInput formControlName="firstName">
@@ -34,14 +34,15 @@
 
                 <div class="mat-radio-button">
                     <mat-label>Gender </mat-label>
-                    <mat-radio-group [ngClass]="{'invalid': ngForm.submitted && basicForm.get('gender')?.invalid}"
+                    <mat-radio-group [ngClass]="{'invalid': ngForm.submitted && nestedForm.get('gender')?.invalid}"
                         formControlName="gender">
                         <mat-radio-button value="male">Male</mat-radio-button>
                         <mat-radio-button value="female">Female</mat-radio-button>
                     </mat-radio-group>
                 </div>
 
-            
+                <div formGroupName="address">
+                    <h2>Address</h2>
 
                     <mat-form-field appearance="fill">
                         <mat-label>Address</mat-label>
@@ -65,7 +66,7 @@
                         <mat-label>Zip Code</mat-label>
                         <input matInput formControlName="zipCode">
                     </mat-form-field>
-                
+                </div>
 
                 <mat-form-field>
                     <mat-label>Choose a Date</mat-label>
@@ -75,7 +76,7 @@
                 </mat-form-field>
 
                 <div class="actions">
-                    <button mat-raised-button color="primary" (click)="submit(basicForm)">{{buttonName}}</button>
+                    <button mat-raised-button color="primary" (click)="submit(nestedForm)">Submit</button>
                 </div>
             </form>
         </div>

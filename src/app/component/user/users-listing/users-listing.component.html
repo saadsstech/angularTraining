@@ -28,7 +28,7 @@
             </ng-container> -->
 
             <tr mat-header-row *matHeaderRowDef="showColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: showColumns;"></tr>
+            <tr mat-row *matRowDef="let row; columns: showColumns;" (click)="edit(row)"></tr>
 
             <tr class="mat-row" *matNoDataRow>
                 <td class="mat-cell" colspan="4">No data filter "{{input.value}}"</td>
