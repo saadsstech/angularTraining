@@ -5,6 +5,7 @@ import { RequestService } from 'src/app/http/services/request.service';
 import { UserConstacts } from '../user-constacts';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 
 @Component({
   selector: 'app-add-edit-user',
@@ -16,14 +17,15 @@ export class AddEditUserComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private RequestService: RequestService
-  ) { 
+    private RequestService: RequestService,
+    private snackbar: SnackbarService
+  ) {
     this.user = this.router.getCurrentNavigation()?.extras?.state?.['user']
   }
 
-  user:any = {};
-  isEditMode:boolean = false;
-  buttonName:string = 'Submit'
+  user: any = {};
+  isEditMode: boolean = false;
+  buttonName: string = 'Submit'
   // api link
   saveUserAPI: string = UserConstacts.userSave;
 
@@ -45,7 +47,7 @@ export class AddEditUserComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    if(this.user?.id){
+    if (this.user?.id) {
       this.basicForm.patchValue(this.user);
       // this.basicForm.setValue(this.user);
       this.isEditMode = true;
@@ -58,17 +60,34 @@ export class AddEditUserComponent implements OnInit {
   }
 
   submit(form: any) {
+
     if (!form.invalid) {
-      this.RequestService.update(form.value, this.user.id, this.saveUserAPI).subscribe((res: any) => {
-          console.log("data has been edited");
-        //   this.basicForm.reset();
-        })
-      
-      // this.RequestService.save(form.value, this.saveUserAPI).subscribe((res: any) => {
-      //   console.log("new user has been created");
-      //   this.basicForm.reset();
-      // })
-    };
+      switch (this.buttonName) {
+        case "Submit": {
+          this.RequestService.save(form.value, this.saveUserAPI).subscribe((res: any) => {
+            this.snackbar.openSnackBar("data has been saved", "Close");
+          });
+          break;
+        }
+        case "Edit": {
+          this.RequestService.update(form.value, this.user.id, this.saveUserAPI).subscribe((res: any) => {
+            this.snackbar.openSnackBar("data has been edited", "Close");
+          });
+          break;
+        }
+      }
+  }
+
+    // if (!form.invalid) {
+    //   this.RequestService.update(form.value, this.user.id, this.saveUserAPI).subscribe((res: any) => {
+    //     this.snackbar.openSnackBar("data has been edited", "Close");
+    //   })
+
+    //   // this.RequestService.save(form.value, this.saveUserAPI).subscribe((res: any) => {
+    //   //   console.log("new user has been created");
+    //   //   this.basicForm.reset();
+    //   // })
+    // };
   }
 
 }
