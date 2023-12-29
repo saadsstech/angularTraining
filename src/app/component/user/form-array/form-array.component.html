@@ -1,0 +1,63 @@
+<div class="addEdit">
+    <div fxlayout="row">
+        <div fxFlex="30"></div>
+        <div fxFlex="70">
+            <form [formGroup]="ArrayForm" #ngForm="ngForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name </mat-label>
+                    <input matInput formControlName="lastName">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Email </mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+
+                <button (click)="addItem()" mat-raised-button color="primary">Add Project</button>
+                <div formArrayName="projects">
+                    <div *ngFor="let project of itemControls.controls; let i=index">
+                      
+                      <div class="project" [formGroupName]="i">
+                        <mat-form-field>
+                          <mat-label>position</mat-label>
+                          <input matInput formControlName="position" />
+                        </mat-form-field>
+             
+                        <mat-form-field>
+                          <mat-label>name</mat-label>
+                          <input matInput formControlName="name" />
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                          <mat-label>weight </mat-label>
+                          <input matInput formControlName="weight">
+                      </mat-form-field>
+                      <mat-form-field appearance="fill">
+                          <mat-label>symbol </mat-label>
+                          <input matInput formControlName="symbol">
+                      </mat-form-field>
+  
+                      <mat-form-field appearance="fill">
+                          <mat-label>description </mat-label>
+                          <input matInput formControlName="description">
+                      </mat-form-field>
+  
+  
+                        <button (click)="removeItem(i)" mat-raised-button>delete</button>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="actions">
+                      <button mat-raised-button color="primary" (click)="submit(ArrayForm)">{{buttonName}}</button>
+                  </div>
+                  <!-- <pre>{{ArrayForm.value | json }}</pre> -->
+                
+            </form>
+        </div>
+    </div>
+</div>
+

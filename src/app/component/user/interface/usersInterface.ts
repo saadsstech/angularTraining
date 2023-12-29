@@ -1,7 +1,5 @@
-import {FormControl } from '@angular/forms';
-
 export interface UsersInterface {
-    id:number;
+    id: number;
     firstName: string;
     lastName: string;
     email: string;
@@ -13,4 +11,20 @@ export interface UsersInterface {
     city: string;
     address: string;
     zipCode: string;
+}
+
+export interface ProjectsInterface {
+    id: number,
+    firstName: string,
+    lastName: string,
+    email: string,
+    projects: [
+        {
+            position: number,
+            name: string,
+            weight: number,
+            symbol: string,
+            description: string
+        }
+    ]
 }

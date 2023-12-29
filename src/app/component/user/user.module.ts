@@ -7,6 +7,7 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
 import { NestformComponent } from './nestform/nestform.component';
+import { FormArrayComponent } from './form-array/form-array.component';
 
 
 
@@ -15,7 +16,8 @@ import { NestformComponent } from './nestform/nestform.component';
     UserComponent,
     UsersListingComponent,
     AddEditUserComponent,
-    NestformComponent
+    NestformComponent,
+    FormArrayComponent
   ],
   imports: [
     CommonModule,

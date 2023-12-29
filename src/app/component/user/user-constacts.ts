@@ -5,4 +5,7 @@ export class UserConstacts {
 
     // basic form
     public static userSave: string = '/users'
+
+    // array form
+    public static projectSave: string = '/projects'
 }
