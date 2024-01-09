@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
 import { NestformComponent } from './nestform/nestform.component';
 import { FormArrayComponent } from './form-array/form-array.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 
 
@@ -17,7 +18,8 @@ import { FormArrayComponent } from './form-array/form-array.component';
     UsersListingComponent,
     AddEditUserComponent,
     NestformComponent,
-    FormArrayComponent
+    FormArrayComponent,
+    DynamicFormComponent
   ],
   imports: [
     CommonModule,

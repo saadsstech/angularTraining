@@ -5,6 +5,7 @@ import { UsersListingComponent } from './users-listing/users-listing.component';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
 import { NestformComponent } from './nestform/nestform.component';
 import { FormArrayComponent } from './form-array/form-array.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'array-form',
         component: FormArrayComponent
+      },
+      {
+        path: 'dynamic-form',
+        component: DynamicFormComponent
       },
     ]
   }
