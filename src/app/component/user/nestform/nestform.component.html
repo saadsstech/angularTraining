@@ -2,7 +2,7 @@
     <div fxlayout="row">
         <div fxFlex="30"></div>
         <div fxFlex="70">
-            <form [formGroup]="nestedForm" #ngForm="ngForm">
+            <form [formGroup]="nestedForm">
                 <mat-form-field appearance="fill">
                     <mat-label>First Name</mat-label>
                     <input matInput formControlName="firstName">
@@ -34,7 +34,7 @@
 
                 <div class="mat-radio-button">
                     <mat-label>Gender </mat-label>
-                    <mat-radio-group [ngClass]="{'invalid': ngForm.submitted && nestedForm.get('gender')?.invalid}"
+                    <mat-radio-group [ngClass]="{'invalid': nestedForm.get('gender')?.invalid}"
                         formControlName="gender">
                         <mat-radio-button value="male">Male</mat-radio-button>
                         <mat-radio-button value="female">Female</mat-radio-button>

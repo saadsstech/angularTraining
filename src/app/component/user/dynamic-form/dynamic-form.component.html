@@ -1,19 +1,13 @@
 <div fxlayout="row">
-    <div fxFlex="30"></div>
-    <div fxFlex="70">
-        <form [formGroup]="dynamicForm" #ngForm="ngForm">
-            <ng-container *ngFor="let field of dynamicFormArray" [ngSwitch]="field.type">
+    <div fxFlex="30">
 
+    </div>
+    <div fxFlex="70">
+        <form [formGroup]="dynamicForm">
+            <ng-container *ngFor="let field of dynamicFormArray" [ngSwitch]="field.type">
                 <mat-form-field appearance="fill" *ngSwitchCase="'textbox'">
                     <mat-label>{{field.label}}</mat-label>
                     <input matInput [formControlName]="field.formFieldName">
-                </mat-form-field>
-
-                <mat-form-field *ngSwitchCase="'date'">
-                    <mat-label>{{field.label}}</mat-label>
-                    <input matInput [matDatepicker]="picker" [formControlName]="field.formFieldName">
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngSwitchCase="'selectbox'">
@@ -23,11 +17,15 @@
                     </mat-select>
                 </mat-form-field>
 
+                <mat-form-field *ngSwitchCase="'date'">
+                    <mat-label>{{field.label}}</mat-label>
+                    <input matInput [matDatepicker]="picker" [formControlName]="field.formFieldName">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
             </ng-container>
-
-
             <div class="actions">
-                <button mat-raised-button color="primary" (click)="submit(dynamicForm)">Submit</button>
+                <button mat-raised-button color="primary" (click)="submit(dynamicForm)">submit</button>
             </div>
         </form>
     </div>

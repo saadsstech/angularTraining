@@ -15,34 +15,37 @@ export class DynamicFormComponent implements OnInit {
 
   dynamicForm = this.fb.group({});
 
-  dynamicFormArray: any = [
+  dynamicFormArray:any = [
     {
       type: 'textbox',
       label: 'First Name',
-      formFieldName: 'firstName',
+      formFieldName: 'firstName'
     },
     {
       type: 'textbox',
-      label: 'last Name',
-      formFieldName: 'lastName',
+      label: 'Last Name',
+      formFieldName: 'lastName'
     },
     {
       type: 'selectbox',
-      label: 'country',
+      label: 'Country',
       formFieldName: 'country',
-      values: [{ id: '0', value: 'India' }, { id: '1', value: 'USA' }],
+      values: [{ id: 'india', value: 'India' }, { id: 'usa', value: 'USA' }]
     },
     {
       type: 'date',
       label: 'Date',
-      formFieldName: 'date',
+      formFieldName: 'date'
     }
-  ];
 
+  ]
+
+ 
   ngOnInit(): void {
-    this.dynamicFormArray.forEach((field: any) => {
-      this.dynamicForm.addControl(field.formFieldName, new FormControl(null));
-    });
+   
+    this.dynamicFormArray.forEach((field:any) => {
+      this.dynamicForm.addControl(field.formFieldName, new FormControl(null))
+    })
 
     console.log(this.dynamicForm);
   }

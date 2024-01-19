@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsersInterface } from '../interface/usersInterface';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { RequestService } from 'src/app/http/services/request.service';
 import { UserConstacts } from '../user-constacts';
 

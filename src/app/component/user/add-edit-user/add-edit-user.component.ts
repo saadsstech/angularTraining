@@ -32,7 +32,7 @@ export class AddEditUserComponent implements OnInit {
   // create form
   basicForm = this.fb.group({
     id: [this.randomId()],
-    firstName: [''],
+    firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required, Validators.maxLength(60)]],
     email: ['', [Validators.required, Validators.email]],
     personalId: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
